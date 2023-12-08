@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo find . -user guillaume -exec chown betty {} \;
+sudo find . -user guillaume -print0 | xargs -0 sudo chown betty
