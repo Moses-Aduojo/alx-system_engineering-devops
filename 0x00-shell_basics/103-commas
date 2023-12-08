@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -1pa | sed 's/$/, /g' | xargs echo | sed 's/,$//g'
