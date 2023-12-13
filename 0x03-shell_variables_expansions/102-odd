@@ -1,2 +1,2 @@
 #!/bin/bash
-sed -n '1~2p'
+cat -n | grep -E '^[[:space:]]*[0-9]*[13579][[:space:]]' | cut -f2-
