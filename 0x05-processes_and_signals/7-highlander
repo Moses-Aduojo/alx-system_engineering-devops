@@ -1,6 +1,6 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 # Function to handle SIGTERM signal
+
 handle_sigterm() {
     echo "I am invincible!!!"
     exit 0
