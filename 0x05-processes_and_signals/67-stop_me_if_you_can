@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 #kill 7-highlander by sending SIGTERM to it.
-kill -TERM "$(pgrep "7-highlander")"
+pkill -f "7-highlander"
