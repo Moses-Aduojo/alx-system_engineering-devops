@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
-# Step 1: Define the regular expression pattern
-phone_number_regex = /^\d{10}$/
-
 # Step 2 & 3: Create a Ruby script
 def match_phone_number(input)
+  # Step 1: Define the regular expression pattern
+  phone_number_regex = /^\d{10}$/
+
   # Perform a match using the regular expression
   if input.match?(phone_number_regex)
     puts input
