@@ -1,13 +1,21 @@
 #!/usr/bin/env ruby
 
-# Get the argument passed to the script
-argument = ARGV[0]
+# Step 2 & 3: Create a Ruby script
+def match_password(input)
+  # Step 1: Define the regular expression
+  regex = /hb?tn/
 
-# Find all occurrences of "School" in the argument
-matches = argument.scan(/School/)
+  # Perform a match using the regular expression
+  if input.match?(regex)
+    puts "#{input}"
+  end
+end
 
-# Concatenate all occurrences of "School" into a single string
-result = matches.join
+# Step 4: Accept one argument and pass it to the match_password method
+password = ARGV[0]
 
-# Output the concatenated string
-puts result
+if password.nil?
+  puts "Please provide a password as an argument."
+else
+  match_password(password)
+end
