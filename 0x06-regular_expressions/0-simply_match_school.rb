@@ -3,7 +3,7 @@
 # Step 2 & 3: Create a Ruby script
 def match_password(input)
   # Step 1: Define the regular expression
-  regex = /hb?tn/
+  regex = /hbt{2,5}n/
 
   # Perform a match using the regular expression
   if input.match?(regex)
