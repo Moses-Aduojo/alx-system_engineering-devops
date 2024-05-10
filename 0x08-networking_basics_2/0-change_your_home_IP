@@ -3,13 +3,19 @@
 #localhost resolves to 127.0.0.2
 #facebook.com resolves to 8.8.8.8
 
-#!/bin/bash
+# Check if script is run as root
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
 
-# Update the /etc/hosts file to set custom DNS resolutions
-echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
-echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts
+# Define the new mappings
+localhost_mapping="127.0.0.2"
+facebook_mapping="8.8.8.8"
 
-# Restart the networking service to apply changes
-sudo systemctl restart networking
+# Backup the original hosts file
+cp /etc/hosts /etc/hosts.bak
 
-echo "Configuration complete!"
+# Apply the new mappings
+echo "$localhost_mapping localhost" >> /etc/hosts
+echo "$facebook_mapping facebook.com" >> /etc/hosts
