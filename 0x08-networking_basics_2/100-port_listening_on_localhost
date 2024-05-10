@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# listening on port 98
+# Define the port number
+PORT=98
+
+# Start listening on the specified port
+while true; do
+    #echo "Waiting for connections on port $PORT..."
+    # Use netcat (nc) to listen on the specified port
+    nc -l -p $PORT
+done
