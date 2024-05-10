@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 # listening on port 98
 # Define the port number
+
+# Define the port number
 PORT=98
 
-# Start listening on the specified port
-while true; do
-    #echo "Waiting for connections on port $PORT..."
-    # Use netcat (nc) to listen on the specified port
-    nc -l -p $PORT
-done
+# Start listening on the specified port in the background
+nc -l -p $PORT &
+
+# Capture the process ID of the background task
+NC_PID=$!
+
+# Wait for user input to stop the listener
+#echo "Listening on port $PORT. Press Enter to stop."
+read
+
+# Terminate the background process
+kill $NC_PID
+
